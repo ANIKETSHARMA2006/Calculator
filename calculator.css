@@ -27,7 +27,7 @@
         width: 85%;
     }
 }
-@media screen and (min-width: 968px) and (max-width: 1388px) {
+@media screen and (min-width: 968px) and (max-width: 1350px) {
     .container {
         width: 50%;
     }
