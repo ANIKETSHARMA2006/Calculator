@@ -1,5 +1,6 @@
 const pera = document.getElementById("display");
 let res=false;
+let ret;
 let cleardisplay=()=>{
 pera.textContent="";
 }
@@ -8,12 +9,12 @@ let del=()=>{
 }
 let appendToDisplay=(input)=>{
     if(input=='+'|| input=='-' || input=='%' || input=='/' || input=='*'){
-        pera.textContent+=input;
+        ret=pera.textContent+=input;
         res=false
     }
     else if(res===true){
         pera.textContent="";
-        pera.textContent+=input;
+        ret=pera.textContent+=input;
         res=false;
     }
     else{
@@ -27,8 +28,12 @@ let callculate = () => {
         let expression = pera.textContent.replace(/%/g, '/100');
         pera.textContent = eval(expression);
         res=true;
+        ret="";
     } catch (error) {
         pera.textContent = "Error";
+        setTimeout(()=>{
+            pera.textContent=ret;
+        },1000)
     }
 
 }
